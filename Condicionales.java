@@ -54,7 +54,7 @@ public class Condicionales {
                 }else{
                     System.out.println("Introduce una palabra valida...");
                 }
-                }    // 
+    }    // 
 
 
 // Imprime por pantalla un numero 
