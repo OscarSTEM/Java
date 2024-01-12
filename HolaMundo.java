@@ -17,6 +17,7 @@ class HolaMundo {
     */  
     public static void main(String[] args){ // Para imrprimir hay que crear el cod principal (main)
         // Solicitamos argumentos en el momento de ejecutar el codigo
+        //Void no devuelve nada
         if (args.length == 1){
             System.out.print("Hola " + args[0] + "!");
         }
@@ -55,12 +56,13 @@ class HolaMundo {
         System.out.println("El numero, de tipo float1, es " + numeroFloat1 + ".");
         double numeroDouble2 = 5/2.0f;
         System.out.println("El numero, de tipo double2, es " + numeroDouble2 + ".");
+        
     }
     
 }  // La clase se debe de crear con el nombre del archivo si o si, todo lo que quieras escribir debe ser dentro de los corchetes
 // Hay que compilar siempre 
 /*Para comentar trozos grandes es asi*/
 // public sirve para nos da la info de quien puede verlo, public todos, privado quien este en el archivo 
-// el nombre de la clase siempre va en Mayuscula
+// el nombre de la clase siempre va en Mayuscula (la primera letra)
 // static significa 
 // void significa que no tiene return, no devuelve nada 
