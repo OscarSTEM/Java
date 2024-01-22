@@ -38,5 +38,6 @@ public class Filtros {
             System.out.println("Solicita una letra");
             letra = sc.nextLine().charAt(0);
         }while(!(letra >= 'a' && letra <= 'z' || letra >= 'A' && letra <= 'Z'));
+        
     }
 }

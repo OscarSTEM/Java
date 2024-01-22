@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class NumerosAleatorios {
     public static void main(String[] args) {
@@ -6,9 +7,11 @@ public class NumerosAleatorios {
         //Generar un numero aleatorio hay que importar el random
         //OPCION 1: ESTA ES LA FORMA "DIFICIL DE HACERLO"
         Random rand = new Random();
+         Scanner sc = new Scanner(System.in);
         int numero;
         double numeroDouble;
-
+        int numeroAleatorio;
+        int num;
         // numero = rand.nextInt(); // funciona como el scanner
         // System.out.println(numero);
         
@@ -54,7 +57,13 @@ public class NumerosAleatorios {
         numero = (int)Math.floor(Math.random()*diferencia)+minimo;
         System.out.println(numero);
 
-       
+        System.out.println("¿Cuantos numeros aleatorios quieres generar?");
+        num = sc.nextInt();
+
+        for(int i = 0 ; i < num; i++){
+            numeroAleatorio = (int)Math.floor((Math.random()*5)+1);
+            System.out.println("Numero aleatorio" + (i+1) + ": " + numeroAleatorio);
+        }
 
 
     }
