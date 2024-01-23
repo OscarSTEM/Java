@@ -1,18 +1,10 @@
-## Getting Started
+# App.java
+El archivo inicial de creacion de los proyectos de JAVA.
+**Se deja como ejemplo**
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+# TamaPalabra.java
 
-## Folder Structure
+Crear una funcion a la que le pases un numero y una palabra.
+-   Si la palabra tiene mas de ese numero de letras la corta.
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+-   Si la palabra tiene menos de ese numero de letras le añade espacios al final
