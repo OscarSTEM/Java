@@ -9,7 +9,7 @@ public class Libro {
    
     //Esto es un atributo de la clase (en este caso de titulo)
     //Es propio de la clase y no de cada uno de los objetos que lo componen
-    private  static int maxLetras = 5;
+    private  static int maxLetras = 15;
 
 
     /**
