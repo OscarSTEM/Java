@@ -132,7 +132,7 @@ public class Libro {
 
      /**
      * Devuelve la representacion en formato de cadena (String) del objeto lirbo
-     * @return Una cadena que representa el objeto lirbo.
+     * @return Una cadena que representa el objeto libro.
      */
     public String toString(){
         return "El libro es " + this.titulo + ", el autor del libro es: " + 
