@@ -92,8 +92,8 @@ public class Autor {
     }
    
     public static void main(String[] args) {
-        Libro libro1 = new Libro("El señor de los anillos: La comunidad del anillo",123456789);
-        Libro libro2 = new Libro("Harry Potter la piedra filosofal","J.K.Rowling",123456788, 600, 0);
+        Libro libro1 = new Libro("El señor de los anillos: La comunidad del anillo","123456789");
+        Libro libro2 = new Libro("Harry Potter la piedra filosofal","J.K.Rowling","123456788", 600, 0);
         ArrayList<Libro> listaLibros = new ArrayList<Libro>();
         listaLibros.add(libro1);
         listaLibros.add(libro2);

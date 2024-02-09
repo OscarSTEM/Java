@@ -33,7 +33,7 @@ public class Ventana {
         this.tamanio = v.tamanio;
         this.transparencia = v.transparencia; 
         this.estaAbierta = v.estaAbierta;
-        this.persiana = v.persiana;
+        this.persiana = new Persiana(this.tamanio);
     }
 
     public double getTamanio(){

@@ -3,7 +3,7 @@ public class Libro {
     //Atributo de instancia
     private String titulo;
     private String autor;
-    private final int ISBN;
+    private final String ISBN; // 978-84-19654-89-2 -> 13 numeros
     private int numPaginas;
     private int fechaPublicacion; // año
    
@@ -19,7 +19,7 @@ public class Libro {
      * @param titulo El titulo del libro
      * @param ISBN El ISBN del libro
      */
-    public Libro(String titulo, int ISBN){
+    public Libro(String titulo, String ISBN){
        this.setTitulo(titulo);
         this.autor = ""; 
         this.ISBN = ISBN;
@@ -34,7 +34,7 @@ public class Libro {
      * @param autor El autor del libro
      * @param numPaginas El numero de paginas
      */
-    public Libro(String titulo,String autor, int ISBN, int numPaginas, int fechaPublicacion){
+    public Libro(String titulo,String autor, String ISBN, int numPaginas, int fechaPublicacion){
         this.setTitulo(titulo);
         this.setAutor(autor);
         this.ISBN = ISBN;
@@ -62,7 +62,7 @@ public class Libro {
      * Obtener el ISBN actual del libro.
      * @return El ISBN del libro
      */
-    public int getISBN(){
+    public String getISBN(){
         return this.ISBN;
     }
 
@@ -85,7 +85,24 @@ public class Libro {
         if(titulo.length() > this.maxLetras) this.titulo=titulo.substring(0,this.maxLetras);
     }
     /* 
+     * Nuestro SUBSTRING()
+    */
+    private static String nuestroSubString(String palabra, int inicio, int fin){
+        String subPalabra = " ";
+        for(int i = inicio ; i < fin && i < palabra.length() ; i++){
+            subPalabra += palabra.charAt(i);
+            System.out.println();
+        }
+        return subPalabra;
+    }
+
+
+
+
+    /* 
      * Nuestro SPLIT()
+     * El since es para poner la fecha
+     * @since 
     */
     private static void nuestroSplit(String frase, char separador){
         ArrayList<String> listaPalabras = new ArrayList<String>();
@@ -139,8 +156,11 @@ public class Libro {
         this.autor + ", su ISB: " + this.ISBN + ". Tiene " + this.numPaginas + " paginas.";
     }
     public static void main(String[] args) {
-        Libro libro1 = new Libro("El señor de los anillos: La comunidad del anillo",123456789);
-        Libro libro2 = new Libro("Harry Potter la piedra filosofal","J.K.Rowling",123456788, 600, 0);
+
+        // if(valorISBN < 1000000)
+
+        Libro libro1 = new Libro("El señor de los anillos: La comunidad del anillo","123456789");
+        Libro libro2 = new Libro("Harry Potter la piedra filosofal","J.K.Rowling","123456788", 600, 0);
         
         System.out.println("El libro1 es: " + libro1);
         System.out.println("El libro2 es: " + libro2);
@@ -152,5 +172,6 @@ public class Libro {
         System.out.println("libro1 -> " + libro1);
 
         nuestroSplit("la casa verde", ' ');
+        System.out.println(nuestroSubString("la casa verde", 0,7));
     }
 }
