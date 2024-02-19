@@ -68,7 +68,7 @@ public class Ventanilla {
         salida += "Es de tamaño " + this.tamanio + " y está ";
 
         if(this.estado) salida += "subida.";
-        else salida += "cerrada.";
+        else salida += "bajada.";
         return salida;
     }
     

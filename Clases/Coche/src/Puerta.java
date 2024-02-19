@@ -41,18 +41,18 @@ public class Puerta {
             this.ventanilla = ventanilla;
         }
         //Estos son metodos de la clase
-        private void abrirPuerta(){
+        public void abrirPuerta(){
             if(!this.pestillo)this.setEstado(false); //Si no está echado el pestillo
             //podemos abrir la puerta
         }
-        private void cerraPuerta(){
+        public void cerraPuerta(){
             this.setEstado(true);
         }
-        private void echarPestillo(){
+        public void echarPestillo(){
             if(this.estado)this.setPestillo(true);
             //Si la puerta esta cerrada podemos echar el pestillo
         }
-        private void quitarPestillo(){
+        public void quitarPestillo(){
             this.setPestillo(false);
         }
     
@@ -65,8 +65,8 @@ public class Puerta {
 
             salida += "El pestillo está "; 
 
-            if(this.pestillo) salida += "echado. ";
-            else salida += "sin echar. ";
+            if(this.pestillo) salida += "echado. \n";
+            else salida += "sin echar. \n";
 
             salida += this.ventanilla.toString();
           
