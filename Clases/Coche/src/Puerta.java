@@ -42,7 +42,8 @@ public class Puerta {
         }
         //Estos son metodos de la clase
         public void abrirPuerta(){
-            if(!this.pestillo)this.setEstado(false); //Si no está echado el pestillo
+            if(!this.pestillo)this.setEstado(false); //Si no está echado 
+            //el pestillo
             //podemos abrir la puerta
         }
         public void cerraPuerta(){

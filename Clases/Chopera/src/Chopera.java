@@ -1,5 +1,7 @@
+import java.util.Random;
 import java.util.ArrayList;
 public class Chopera {
+    Random rand = new Random();
     private int numFilas;
     private int numColumnas;
     private int edadChopera;
@@ -24,19 +26,32 @@ public class Chopera {
         this.edadChopera = 0;
         this.setEdadChopera(edadChopera);
         this.matrizDeChopos = new ArrayList<ArrayList<Chopo>>();
+    }
 
-        Chopo chopoNormal = new Chopo(3,30,1);
-        //Un chopo generico
+    
 
+    public Chopera( int numFilas, int numColumnas){
+        this.numFilas = 0;
+        this.setNumFilas(numFilas);
+        this.numColumnas = 0;
+        this.setNumColumnas(numColumnas);
+        int edadMax = 0;
+        this.matrizDeChopos = new ArrayList<ArrayList<Chopo>>();
 
-        for(int i = 0; i< numFilas ; i++){
-            //Matriz es una Arraylist
-            //Por cada fila de la matriz, creamos un array 
-            // de columnas de chopos
+        Chopo chopoAleatorio;
+        for (int i = 0; i < numFilas ; i++){
+            // Matriz es una ArrayList. Por cada fila de la matriz, creamos un arrayList de columnas de chopos.
             matrizDeChopos.add(new ArrayList<Chopo>());
-            for( int j = 0 ; j < numColumnas ; j++);
-            matrizDeChopos.get(i).add(chopoNormal);
+            for (int j = 0 ; j < numColumnas ; j++){
+                double altura = (Math.round(Math.random()*900))/100.0;
+                double diametro = (Math.round(Math.random()*4500))/100.0;
+                int edad = (int)Math.floor(Math.random()*3)+1;
+                if (edad>edadMax) edadMax = edad; // Para que la chopera tenga la edad del más viejo de los chopos.
+                chopoAleatorio = new Chopo(altura,diametro,edad);
+                matrizDeChopos.get(i).add(chopoAleatorio);
+            }
         }
+        this.edadChopera = edadMax;
     }
     public Chopera(Chopera c){
         this.numFilas = c.numFilas;
@@ -84,6 +99,7 @@ public class Chopera {
         return salida;
     }
     public static void main(String[] args) {
+        Random rand = new Random();
         // int numFil = 1;
         // int numCol = 3;
         // ArrayList<ArrayList<Integer>> numeros = new ArrayList<ArrayList<Integer>>();
@@ -101,7 +117,30 @@ public class Chopera {
 
         Chopera chopera1 = new Chopera(3, 3,1);
         System.out.println(chopera1);
+        Chopera chopera2 = new Chopera(3, 3,1);
+        Chopera chopera3 = new Chopera(3, 3,1);
 
+        ArrayList<Chopera> listaChopos = new ArrayList<Chopera>();
+        listaChopos.add(chopera1);
+        listaChopos.add(chopera2);
+        listaChopos.add(chopera3);
 
+        System.out.println(listaChopos);
+
+        //Sumamos de chopera3 la altura de todos los chopos
+        // y el diametro de todos los chopos.
+        double alturaTotal = 0.0;
+        double diametroTotal = 0.0;
+        for(ArrayList<Chopo> fila : chopera3.getMatrizDeChopos()){
+            for(Chopo columna : fila){
+                alturaTotal += columna.getAltura();
+                diametroTotal += columna.getDiametro();
+            }
+        }
+
+        System.out.println("La altura es : " + alturaTotal + ".");
+        System.out.println("El diametro total es : " + diametroTotal + ".");;
+        //Creamos una lista de alturas, en la que guardamos la suma
+        // de la altura de cada una de las filas de chopos
     }
 }

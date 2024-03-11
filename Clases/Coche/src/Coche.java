@@ -19,7 +19,7 @@ public class Coche {
         this.puertaIzq = new Puerta();
     }
     public Coche(Coche c){
-        this.cierreCentralizado = cierreCentralizado;
+        this.cierreCentralizado = c.cierreCentralizado;
         this.estado =c.estado;
         this.puertaDer = new Puerta(c.puertaDer);
         this.puertaIzq = new Puerta(c.puertaIzq);
@@ -55,6 +55,8 @@ public class Coche {
     //Estos son metodos de la clase
     public void abrirCoche(){
        this.setCierreCentralizado(false);
+       this.getPuertaDer().quitarPestillo();
+       this.getPuertIzq().quitarPestillo();
         //podemos abrir la puerta
     }
     public void cerrarCoche(){
@@ -70,8 +72,35 @@ public class Coche {
     public void apagar(){
         this.setEstado(false);
          //Si la puerta esta cerrada podemos echar el pestillo
+    } 
+    //Le pasamos un String para repasar los string
+    //Para los String es .equals
+    public void abrirPuertaCoche(String puerta){
+       if(!this.cierreCentralizado){ //Si el cierre no esta echado: 
+        if(puerta.equals("Der")){
+            this.puertaDer.abrirPuerta();
+        }else if(puerta.equals("Izq"))this.puertaIzq.abrirPuerta();
+       }
     }
+    //Se pueden llamar igual estos metodos porque los parametros son diferentes
+    //Añadimos mensajes de error para poder testear
 
+    /**
+     * Abre la puerta del coche que se le pasa por parametros, teniendo
+     * en cuenta si l cierre cent esta echado o no. No se puede abrir
+     * si tiene el cierre echado
+     * @param puerta Es la puerta que queremos abrir
+     * @return Mensaje de error 1 se puede abrir la puerta y el -1 No se puede
+     * abrir la puerta
+     */
+    public void abrirPuertaCoche(Puerta puerta){
+        int salida = -1;
+        if(!this.cierreCentralizado){
+            puerta.abrirPuerta();
+            salida = 1;
+        }
+
+    }
 
 
     public String toString(){
@@ -99,13 +128,17 @@ public class Coche {
 
         coche1.abrirCoche();
         System.out.println(coche1);
-
-        coche1.getPuertaDer().quitarPestillo();
-        coche1.getPuertaDer().abrirPuerta();;
+        //Abro la puerta del copiloto
+        // coche1.getPuertaDer().quitarPestillo();
+        
+        // int salidaAbrirPuertaCoche = coche1.abrirPuerta(coche1.getPuertaDer());
+        // if(salidaAbrirPuertaCoche == -1) System.out.println("Nose ha podido abrir el coche");
         System.out.println(coche1);
-
+        //Bajo la ventanilla del conductor
         coche1.getPuertIzq().getVentanilla().bajar();
         System.out.println(coche1);
         
+        coche1.abrirPuertaCoche(coche1.getPuertaDer());
+        System.out.println(coche1);
     }
 }
