@@ -1,4 +1,4 @@
-package Clases.MascotasHerencia;
+
 import java.time.LocalDateTime;
 
 public class Mascota<DateTime>{
