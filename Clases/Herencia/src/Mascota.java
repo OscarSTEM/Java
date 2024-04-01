@@ -97,7 +97,7 @@ public class Mascota {
     }
 
     public String toString() {
-        return "La mascota se llama " + this.nombre + ", nació el " + this.fechaNacimiento + " y su dueño/a es " + this.nombreDuenio + ".";
+        return "Se llama " + this.nombre + ", nació el " + this.fechaNacimiento + " y su dueño/a es " + this.nombreDuenio + ".";
     }
     
     public static void main(String[] args){
