@@ -1,12 +1,15 @@
+
+
 import java.time.LocalDateTime;
 
-public class Mascota {
+public  abstract class Mascota {
     private String nombre;
     private LocalDateTime fechaNacimiento; // Con ella podemos calcular la edad.
     private String microchip;
     //private Persona duenio;  
     private String nombreDuenio; // Porque todavía no hemos creado la clase Persona :(
-    
+    // raza...
+
     public Mascota(){
         this.nombre = "";
         this.fechaNacimiento = LocalDateTime.now();
@@ -76,15 +79,13 @@ public class Mascota {
     public void setNombreDuenio(String nombreDuenio) {
         this.nombreDuenio = nombreDuenio;
     }
-    //Metodos
+
+    // Métodos
     public String comer(){
         return "Comiendo...";
     }
-    public String caca(){
-        return "Haciendo caca...";
-    }
     public String evacuar(){
-        return "Evacuando...";
+        return "Evacuar...";
     }
     public String dormir(){
         return "Durmiendo...";
@@ -92,28 +93,31 @@ public class Mascota {
     public String jugar(){
         return "Jugando...";
     }
-    public String onomatopeyar(){
-        return "*ruido de animales*";
-    }
+    abstract public String onomatopeyar();
 
     public String toString() {
-        return "Se llama " + this.nombre + ", nació el " + this.fechaNacimiento + " y su dueño/a es " + this.nombreDuenio + ".";
+        return "Se llama " + this.nombre + ", nació el " + this.fechaNacimiento + " y su dueño/a es " + this.nombreDuenio;
     }
     
     public static void main(String[] args){
-        System.out.println("Hola, soy una mascota!");
-        Mascota mascotaPorDefecto = new Mascota();
-        System.out.println(mascotaPorDefecto);
+        // Quitamos el main porque al hacer la clase abstracta, no 
+        // podemos cear objetos de la clase mascota no podemo sinstanciar la
+        //clase mascota.
 
-        LocalDateTime fecha = LocalDateTime.now();
-        Mascota mascotaParametros = new Mascota("mascota", fecha, "5", "dueño");
-        System.out.println(mascotaParametros);
+        
+        // System.out.println("Hola, soy una mascota!");
+        // Mascota mascotaPorDefecto = new Mascota();
+        // System.out.println(mascotaPorDefecto);
 
-        mascotaParametros.setNombreDuenio("otroDuenio");
-        Mascota mascotaPorCopia = new Mascota(mascotaParametros);
-        System.out.println(mascotaPorCopia);
+        // LocalDateTime fecha = LocalDateTime.now();
+        // Mascota mascotaParametros = new Mascota("mascota", fecha, "5", "dueño");
+        // System.out.println(mascotaParametros);
 
-        System.out.println(mascotaPorDefecto.dormir());
-        System.out.println(mascotaPorDefecto.evacuar());
+        // mascotaParametros.setNombreDuenio("otroDueño");
+        // Mascota mascotaPorCopia = new Mascota(mascotaParametros);
+        // System.out.println(mascotaPorCopia);
+
+        // System.out.println(mascotaPorDefecto.dormir());
+
     }
 }
